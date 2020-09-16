@@ -1,0 +1,19 @@
+[package]
+name = "text_processing_toolkit"
+version = "0.1.0"
+authors = ["IceBlockProduction <iceblockproduction@protonmail.com>"]
+description = "A Rust implementation of the Unix concatenate command (cat)"
+license = "MIT OR Apache-2.0"
+categories = ["command-line-utilities", "text-processing"]
+keywords = ["cat", "cli"]
+edition = "2018"
+default-run = "tpt"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "tpt"
+path = "src/tpt.rs"
+
+[dependencies]
+structopt = "0.3.17"
