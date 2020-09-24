@@ -1,5 +1,5 @@
 [package]
-name = "text_processing_toolkit"
+name = "tpt"
 version = "0.1.0"
 authors = ["IceBlockProduction <iceblockproduction@protonmail.com>"]
 description = "A Rust implementation of the Unix concatenate (cat) and word-count (wc) command"
