@@ -1,5 +1,5 @@
-# Text-Processing-Toolkit
-Text-Processing-Toolkit subsumes a few simple and lightweight Rust implementations of popular Unix Shell commands such as cat and wc 
+# text_processing_toolkit
+text_processing_toolkit subsumes a few simple and lightweight Rust implementations of popular Unix Shell commands such as cat and wc 
 that run everywhere thanks to the Rust compiler.
 
 ## Installation
@@ -8,8 +8,8 @@ Installation works from source via
 cargo install tpt
 ```
 
-## TPR
-Text-Processing-Read - short tpr - is a command line utility similar to cat and can be used like this:
+## tpr
+text_processing_read - short tpr - is a command line utility similar to cat and can be used like this:
 ```
 Text Processing Toolkit 0.1
 IceBlockProduction
@@ -31,8 +31,8 @@ An example usage would be:
 tpr -n -f faust.txt   This prints everything from the specified file faust.txt with numbered lines to stdout
 ```
 
-## TPC
-Text-Processing-Count - short tpc - is a command line utility similar to wc and can be used like this:
+## tpc
+text_processing_count - short tpc - is a command line utility similar to wc and can be used like this:
 ```
 Text Processing Toolkit 0.1
 A Rust implementation of the Unix wordcount command (wc)

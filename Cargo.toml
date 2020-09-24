@@ -1,8 +1,8 @@
 [package]
-name = "Text_Processing_Toolkit"
-version = "0.1.1"
+name = "text_processing_toolkit"
+version = "0.1.2"
 authors = ["IceBlockProduction <iceblockproduction@protonmail.com>"]
-description = "A Rust implementation of the Unix concatenate command (cat)"
+description = "A Rust implementation of the Unix concatenate (cat) and word-count (wc) command"
 license = "MIT"
 categories = ["command-line-utilities", "text-processing"]
 keywords = ["cat", "wc","cli"]
