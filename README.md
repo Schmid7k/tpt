@@ -1,9 +1,9 @@
 # Text-Processing-Toolkit
-Text-Processing-Toolkit subsumes simple and lightweight Rust implementation of popular Unix Shell commands such as cat and wc 
+Text-Processing-Toolkit subsumes a few simple and lightweight Rust implementations of popular Unix Shell commands such as cat and wc 
 that run everywhere thanks to the Rust compiler.
 
 ## Installation
-Installtion works from source via
+Installation works from source via
 ```
 cargo install tpt
 ```

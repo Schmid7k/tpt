@@ -1,6 +1,6 @@
 [package]
 name = "Text_Processing_Toolkit"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["IceBlockProduction <iceblockproduction@protonmail.com>"]
 description = "A Rust implementation of the Unix concatenate command (cat)"
 license = "MIT"
