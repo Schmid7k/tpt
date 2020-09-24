@@ -1,13 +1,13 @@
 [package]
 name = "text_processing_toolkit"
-version = "0.1.2"
+version = "0.1.0"
 authors = ["IceBlockProduction <iceblockproduction@protonmail.com>"]
 description = "A Rust implementation of the Unix concatenate (cat) and word-count (wc) command"
 license = "MIT"
 categories = ["command-line-utilities", "text-processing"]
 keywords = ["cat", "wc","cli"]
 edition = "2018"
-repository = "https://github.com/IceBlockProduction/Text-Processing-Toolkit"
+repository = "https://github.com/IceBlockProduction/tpt"
 readme="README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
