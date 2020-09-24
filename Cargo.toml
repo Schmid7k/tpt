@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["IceBlockProduction <iceblockproduction@protonmail.com>"]
 description = "A Rust implementation of the Unix concatenate command (cat)"
 license = "MIT"
+license-file = "./LICENSE"
 categories = ["command-line-utilities", "text-processing"]
 keywords = ["cat", "wc","cli"]
 edition = "2018"
