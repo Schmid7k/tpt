@@ -1,20 +1,14 @@
-use std::fs::OpenOptions;
 use std::fs::File;
 use std::io::prelude::*;
+use std::fs::OpenOptions;
 use std::io::Error;
 
-use crate::cli::tpt_cli::CLP;
+use crate::cli::tpr_cli::CLP;
 
 pub fn open_file(parameters: &CLP) -> Result<std::fs::File, Error> {
-    match parameters.write {
-        true => OpenOptions::new()
+    OpenOptions::new()
             .read(true)
-            .open(parameters.file.clone()),
-        false => OpenOptions::new()
-            .read(true)
-            .write(true)
-            .open(parameters.file.clone()),
-    }
+            .open(parameters.file.clone())
 }
 
 pub fn print_from_file(mut file: File, parameters: &CLP) {

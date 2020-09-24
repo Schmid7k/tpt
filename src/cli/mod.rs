@@ -1,2 +1,2 @@
-#![forbid(unsafe_code)]
-pub mod tpt_cli;
+pub mod tpr_cli;
+pub mod tpc_cli;

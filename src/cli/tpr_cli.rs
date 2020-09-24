@@ -13,8 +13,6 @@ pub struct CLP {
     // Flags
     #[structopt(short, long, help = "Print lines numbered")]
     pub numbered: bool,
-    #[structopt(short, long, help = "Open specified file in write mode")]
-    pub write: bool,
     // Options
     #[structopt(short, long, help = "Path to file", parse(from_os_str))]
     pub file: PathBuf,
