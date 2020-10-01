@@ -1,6 +1,6 @@
 [package]
 name = "tpt"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["IceBlockProduction <iceblockproduction@protonmail.com>"]
 description = "A Rust implementation of the Unix concatenate (cat) and word-count (wc) command"
 license = "MIT"

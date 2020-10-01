@@ -1,27 +1,34 @@
 use std::fs::File;
+use std::io;
 use std::io::prelude::*;
-use std::fs::OpenOptions;
-use std::io::Error;
 
 use crate::cli::tpr_cli::CLP;
 
-pub fn open_file(parameters: &CLP) -> Result<std::fs::File, Error> {
-    OpenOptions::new()
-            .read(true)
-            .open(parameters.file.clone())
+pub fn run(clp: CLP) -> io::Result<()> {
+    match clp.file.clone() {
+        None => tpr(io::BufReader::new(io::stdin()), io::stdout(), &clp)?,
+        Some(file) => tpr(io::BufReader::new(File::open(file)?), io::stdout(), &clp)?,
+    }
+    Ok(())
 }
 
-pub fn print_from_file(mut file: File, parameters: &CLP) {
-    let mut output = String::new();
-    file.read_to_string(&mut output).expect("Unable to parse file content into String");
-    match parameters.numbered {
-        true => {
-            for (count, line) in output.lines().enumerate() {
-                println!("{}: {}", count, line);
-            }
+fn tpr<R: BufRead, W: Write>(reader: R, mut writer: W, parameters: &CLP) -> io::Result<()> {
+    if parameters.numbered {
+        for (line, bytes) in reader.lines().enumerate() {
+            writer.write_fmt(format_args!(
+                "{} {}\n",
+                line,
+                bytes.expect("Unable to parse characters into UTF-8 format")
+            ))?;
         }
-        false => {
-            print!("{}", output);
+    } else {
+        for line in reader.lines() {
+            writer.write_fmt(format_args!(
+                "{}\n",
+                line.expect("Unable to parse characters into UTF-8 format")
+            ))?;
         }
     }
+
+    Ok(())
 }

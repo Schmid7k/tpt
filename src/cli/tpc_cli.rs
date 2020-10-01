@@ -6,8 +6,7 @@ use structopt::*;
     name = "Text Processing Toolkit",
     about = "A Rust implementation of the Unix wordcount command (wc)",
     author = "IceBlockProduction",
-    version = "0.1",
-    setting = structopt::clap::AppSettings::ArgRequiredElseHelp
+    version = "0.2.0"
 )]
 pub struct CLP {
     // Flags
@@ -21,5 +20,5 @@ pub struct CLP {
     pub words: bool,
     // Options
     #[structopt(short, long, help = "Path to file", parse(from_os_str))]
-    pub file: PathBuf,
+    pub file: Option<PathBuf>,
 }

@@ -1,29 +1,37 @@
 use std::fs::File;
+use std::io;
 use std::io::prelude::*;
-use std::fs::OpenOptions;
-use std::io::Error;
 
 use crate::cli::tpc_cli::CLP;
 
-pub fn open_file(parameters: &CLP) -> Result<std::fs::File, Error> {
-    OpenOptions::new()
-            .read(true)
-            .open(parameters.file.clone())
+pub fn run(clp: CLP) -> io::Result<()> {
+    match clp.file.clone() {
+        None => tpc(io::BufReader::new(io::stdin()), io::stdout(), &clp)?,
+        Some(file) => tpc(
+            io::BufReader::new(File::open(file)?),
+            io::stdout(),
+            &clp,
+        )?,
+    }
+    Ok(())
 }
 
-pub fn print_from_file(mut file: File, parameters: &CLP) {
-    let mut output = String::new();
-    let bytes = file.read_to_string(&mut output).expect("Unable to parse file content into String");
+fn tpc<R: BufRead, W: Write>(mut reader: R, mut writer: W, parameters: &CLP) -> io::Result<()> {
+    let mut buf = String::new();
+    let bytes = reader.read_to_string(&mut buf).expect("Unable to parse content into String");
+
+    
     if parameters.bytes {
-        println!("{} bytes", bytes);
+        writer.write_fmt(format_args!("{} bytes ", bytes))?;
     }
     if parameters.chars {
-        println!("{} chars", output.chars().count());
+        writer.write_fmt(format_args!("{} chars ", buf.chars().count()))?;
     }
     if parameters.lines {
-        println!("{} lines", output.lines().count());
+        writer.write_fmt(format_args!("{} lines ", buf.lines().count()))?;
     }
     if parameters.words {
-        println!("{} words", output.split_whitespace().count());
+        writer.write_fmt(format_args!("{} words ", buf.split_whitespace().count()))?;
     }
+    Ok(())
 }
