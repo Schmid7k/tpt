@@ -6,7 +6,7 @@ use structopt::*;
     name = "Text Processing Toolkit",
     about = "Pure Rust implementation of the Unix concatenate command (cat)",
     author = "By Schmid7k",
-    version = "0.2.1"
+    version = "0.2.2"
 )]
 pub struct CLP {
     // Flags
