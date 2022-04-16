@@ -16,7 +16,7 @@ name = "tpt"
 path = "src/lib.rs"
 
 [dependencies]
-structopt = "*"
+structopt = "0.3.26"
 
 [profile.release]
 opt-level = 3
