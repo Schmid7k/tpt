@@ -1,14 +1,14 @@
 [package]
 name = "tpt"
-version = "0.2.0"
-authors = ["IceBlockProduction <iceblockproduction@protonmail.com>"]
-description = "A Rust implementation of the Unix concatenate (cat) and word-count (wc) command"
+version = "0.2.1"
+authors = ["Schmid7k>"]
+description = "Pure Rust implementation of the Unix concatenate (cat) and word-count (wc) command"
 license = "MIT"
 categories = ["command-line-utilities", "text-processing"]
-keywords = ["cat", "wc","cli"]
+keywords = ["cat", "wc", "cli"]
 edition = "2018"
-repository = "https://github.com/IceBlockProduction/tpt"
-readme="README.md"
+repository = "https://github.com/Schmid7k/tpt"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
@@ -16,4 +16,13 @@ name = "tpt"
 path = "src/lib.rs"
 
 [dependencies]
-structopt = "0.3.17"
+structopt = "*"
+
+[profile.release]
+opt-level = 3
+codegen-units = 1
+debug = false
+debug-assertions = false
+lto = "fat"
+rpath = false
+incremental = false

@@ -4,9 +4,9 @@ use structopt::*;
 #[derive(StructOpt, Debug)]
 #[structopt(
     name = "Text Processing Toolkit",
-    about = "A Rust implementation of the Unix wordcount command (wc)",
-    author = "IceBlockProduction",
-    version = "0.2.0"
+    about = "Pure Rust implementation of the Unix wordcount command (wc)",
+    author = "By Schmid7k",
+    version = "0.2.1"
 )]
 pub struct CLP {
     // Flags
@@ -18,7 +18,7 @@ pub struct CLP {
     pub chars: bool,
     #[structopt(short, long, help = "Print word count")]
     pub words: bool,
-    // Options
-    #[structopt(short, long, help = "Path to file", parse(from_os_str))]
+    // Args
+    #[structopt(multiple = true, parse(from_os_str))]
     pub file: Option<PathBuf>,
 }

@@ -17,7 +17,7 @@ fn tpr<R: BufRead, W: Write>(reader: R, mut writer: W, parameters: &CLP) -> io::
         for (line, bytes) in reader.lines().enumerate() {
             writer.write_fmt(format_args!(
                 "{} {}\n",
-                line,
+                line + 1,
                 bytes.expect("Unable to parse characters into UTF-8 format")
             ))?;
         }
