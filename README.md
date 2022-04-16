@@ -1,5 +1,5 @@
-# text_processing_toolkit
-text_processing_toolkit subsumes a few simple and lightweight pure Rust implementations of popular Unix shell commands such as cat and wc.
+# Text Processing Toolkit (tpt)
+The Text Processing Toolkit subsumes a few simple and lightweight pure Rust implementations of popular Unix shell commands such as cat and wc.
 
 ## Installation
 Installation via cargo:
@@ -19,7 +19,7 @@ cargo build --release
 ```
 
 ## tpr
-text_processing_read - short tpr - is a command line utility similar to cat:
+Text Processing Read - short tpr - is a command line utility similar to cat:
 ```
 Text Processing Toolkit 0.2.1
 By Schmid7k
@@ -47,7 +47,7 @@ echo "Hello World" | tpr
 ```
 
 ## tpc
-text_processing_count - short tpc - is a command line utility similar to wc:
+Text Processing Count - short tpc - is a command line utility similar to wc:
 ```
 Text Processing Toolkit 0.2.1
 By Schmid7k
