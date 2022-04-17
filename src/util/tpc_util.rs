@@ -14,21 +14,32 @@ pub fn run(clp: CLP) -> io::Result<()> {
 
 fn tpc<R: BufRead, W: Write>(mut reader: R, mut writer: W, parameters: &CLP) -> io::Result<()> {
     let mut buf = String::new();
+    let mut output = String::new();
     let bytes = reader
         .read_to_string(&mut buf)
         .expect("Unable to parse content into String");
 
-    if parameters.bytes {
-        writer.write_fmt(format_args!("{} bytes ", bytes))?;
+    if !parameters.bytes && !parameters.chars && !parameters.lines && !parameters.words {
+        output = format!(
+            " {} {} {}",
+            buf.lines().count(),
+            buf.split_whitespace().count(),
+            bytes
+        );
+    } else {
+        if parameters.lines {
+            output.push_str(&format!(" {}", buf.lines().count()));
+        }
+        if parameters.words {
+            output.push_str(&format!(" {}", buf.split_whitespace().count()));
+        }
+        if parameters.chars {
+            output.push_str(&format!(" {}", buf.chars().count()));
+        }
+        if parameters.bytes {
+            output.push_str(&format!(" {}", bytes));
+        }
     }
-    if parameters.chars {
-        writer.write_fmt(format_args!("{} chars ", buf.chars().count()))?;
-    }
-    if parameters.lines {
-        writer.write_fmt(format_args!("{} lines ", buf.lines().count()))?;
-    }
-    if parameters.words {
-        writer.write_fmt(format_args!("{} words ", buf.split_whitespace().count()))?;
-    }
-    Ok(())
+
+    writer.write_fmt(format_args!("{}\n", output))
 }

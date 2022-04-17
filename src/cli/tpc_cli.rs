@@ -4,9 +4,9 @@ use structopt::*;
 #[derive(StructOpt, Debug)]
 #[structopt(
     name = "Text Processing Toolkit",
-    about = "Pure Rust implementation of the Unix wordcount command (wc)",
+    about = "Pure Rust implementation of the Unix wordcount command (wc). Print newline, word, character, and byte counts for each file or input given through stdin. A word is a non-zero-lenth sequence of character delimited by white space.\nThe order of counts is always: newline, word, character, byte.",
     author = "By Schmid7k",
-    version = "0.2.2"
+    version = "0.3.0"
 )]
 pub struct CLP {
     // Flags
